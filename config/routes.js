@@ -34,7 +34,18 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+
+  '/fill.html': {
+    view: 'fill'
+  },
+
+  'GET /upload/:amount/:address': 'TransactionController.upload',
+
+  '/sent.html': {
+    view: 'sent'
+  },
+
 
   /***************************************************************************
   *                                                                          *
