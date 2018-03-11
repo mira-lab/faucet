@@ -26,7 +26,8 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+   '*': false,
+  '/fill.html': true,
 
   /***************************************************************************
   *                                                                          *
@@ -34,18 +35,23 @@ module.exports.policies = {
   * and its actions                                                          *
   *                                                                          *
   ***************************************************************************/
-	// RabbitController: {
+  TransactionController: {
+    '*':false,
+    'send': true,
+    'upload': true,
 
-		// Apply the `false` policy as the default for all of RabbitController's actions
-		// (`false` prevents all access, which ensures that nothing bad happens to our rabbits)
-		// '*': false,
 
-		// For the action `nurture`, apply the 'isRabbitMother' policy
-		// (this overrides `false` above)
-		// nurture	: 'isRabbitMother',
-
-		// Apply the `isNiceToAnimals` AND `hasRabbitFood` policies
-		// before letting any users feed our rabbits
-		// feed : ['isNiceToAnimals', 'hasRabbitFood']
-	// }
+    //'info': "basicAuth",
+    //'info': ["basicAuth",'passport',"myBasicAuth"],
+    'find': ["basicAuth",'passport',"myBasicAuth"],
+    'add': ["basicAuth",'passport',"myBasicAuth"],
+    'destroy': ["basicAuth",'passport',"myBasicAuth"],
+  } ,
+  AuthController: {
+    '*': false,
+    'logout': false,
+    'provider': false,
+    'callback': false,
+    'disconnect': false
+  }
 };
