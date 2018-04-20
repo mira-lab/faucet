@@ -1,4 +1,3 @@
 .tmp/localDiskDb.db
-package-lock.json
 node_modules/
 .idea/
