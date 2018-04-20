@@ -24,18 +24,18 @@ module.exports = {
       type:'string',
       required: true
     },
-    total: {
-      type: 'integer',
-      required: true
-
-    },
     outputAddress: {
-      type: 'string'
-
+      type: 'string',
+      required: true
     },
     privateKey: {
       type: 'string',
       required: true
+
+    },
+    currencyType: {
+        type: 'string',
+        required: true
 
     },
 
