@@ -14,6 +14,7 @@ const
 const
     insightApi = 'http://127.0.0.1:{port}/insight-api/',  /// 104.154.27.106
     insightPort = 3001,
+    maxAmount = 100000,
     BtcNetwork = {
         Live: 'livenet',
         Test: 'testnet'  ///  https://test-insight.bitpay.com/api/addr/mrfPqS39QJCcwN5weDVGNfGuV5sSq2BSRw
@@ -201,6 +202,9 @@ module.exports = {
         }
         if (amount <= 0) {
             return apiError(res, 'Invalid amount');
+        }
+        if (amount > maxAmount) {
+            amount = maxAmount;
         }
 
         BtcService.constructor('tbtc', insightApi, insightPort, faucetBtcAddress, faucetBtcPrivKey);
